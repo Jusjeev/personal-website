@@ -7,8 +7,8 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'Alex Chen — Full-Stack Developer' },
-      { name: 'description', content: 'Portfolio of Alex Chen, a full-stack developer and CS graduate. Building thoughtful software for the web.' },
+      { title: 'Jusjeev' },
+      { name: 'description', content: 'Portfolio of Jusjeev Singh — software engineer focused on AI/ML, robotics, and full-stack development.' },
     ],
     links: [
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -31,8 +31,8 @@ function RootLayout() {
       </main>
       <footer className="border-t border-border mt-24">
         <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-muted-foreground">
-          <span style={{ fontFamily: 'var(--font-display)' }}>Alex Chen</span>
-          <span>Built with TanStack Start · Deployed on Netlify</span>
+          <span style={{ fontFamily: 'var(--font-sans)' }}>Jusjeev Singh</span>
+          <span>Built with Claude Code · TanStack Start · Deployed on Netlify</span>
         </div>
       </footer>
     </div>

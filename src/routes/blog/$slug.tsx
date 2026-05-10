@@ -18,7 +18,7 @@ function BlogPost() {
         <div className="text-center">
           <h1
             className="text-2xl font-bold text-foreground mb-3"
-            style={{ fontFamily: 'var(--font-display)' }}
+            style={{ fontFamily: 'var(--font-sans)' }}
           >
             Post not found
           </h1>
@@ -46,7 +46,7 @@ function BlogPost() {
         <header className="mb-10">
           <h1
             className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight"
-            style={{ fontFamily: 'var(--font-display)' }}
+            style={{ fontFamily: 'var(--font-sans)' }}
           >
             {post.title}
           </h1>

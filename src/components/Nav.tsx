@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react'
 import { Sun, Moon, Menu, X } from 'lucide-react'
 
 const NAV_LINKS = [
-  { to: '/' as const, label: 'Home' },
-  { to: '/about' as const, label: 'About' },
+  { to: '/' as const, label: 'About' },
+  { to: '/experiences' as const, label: 'Experience' },
   { to: '/projects' as const, label: 'Projects' },
-  { to: '/resume' as const, label: 'Resume' },
+  { to: '/personal' as const, label: 'Personal' },
   { to: '/contact' as const, label: 'Contact' },
 ]
 
@@ -35,9 +35,9 @@ export function Nav() {
         <Link
           to="/"
           className="text-base font-semibold tracking-tight text-foreground hover:text-accent transition-colors"
-          style={{ fontFamily: 'var(--font-display)' }}
+          style={{ fontFamily: 'var(--font-sans)' }}
         >
-          Alex Chen
+          Jusjeev Singh
         </Link>
 
         {/* Desktop nav */}

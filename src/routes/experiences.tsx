@@ -1,67 +1,33 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { marked } from 'marked'
 import { allJobs, allEducations } from 'content-collections'
-import { Badge } from '@/components/ui/badge'
 import { MapPin, Calendar, Download } from 'lucide-react'
 
-export const Route = createFileRoute('/resume')({
-  component: Resume,
+export const Route = createFileRoute('/experiences')({
+  component: Experiences,
 })
 
-function Resume() {
+function Experiences() {
   const jobs = [...allJobs].sort(
     (a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime(),
   )
 
   return (
     <div className="max-w-3xl mx-auto px-6 pt-16 pb-20">
-      {/* Header */}
       <div className="flex items-start justify-between gap-4 mb-14">
-        <div>
-          <p
-            className="text-xs font-medium text-accent uppercase tracking-widest mb-4"
-            style={{ fontFamily: 'var(--font-mono)' }}
-          >
-            Resume
-          </p>
-          <h1
-            className="text-4xl md:text-5xl font-bold text-foreground mb-2 leading-tight"
-            style={{ fontFamily: 'var(--font-display)' }}
-          >
-            Alex Chen
-          </h1>
-          <p className="text-base text-muted-foreground">Full-Stack Developer · San Francisco, CA</p>
-        </div>
+        <p
+          className="text-xs font-medium text-accent uppercase tracking-widest"
+          style={{ fontFamily: 'var(--font-mono)' }}
+        >
+          Experience
+        </p>
         <a
-          href="/headshot-on-white.jpg"
+          href="/resume.pdf"
           download
           className="hidden sm:inline-flex shrink-0 items-center gap-2 px-4 py-2 border border-border text-sm text-muted-foreground hover:text-foreground hover:bg-secondary rounded-md transition-colors"
         >
-          <Download size={13} /> Download CV
+          <Download size={13} /> Download Resume
         </a>
-      </div>
-
-      {/* Summary */}
-      <div className="flex gap-6 items-start mb-14">
-        <img
-          src="/.netlify/images?url=/headshot-on-white.jpg&w=200&h=240&fit=cover&q=90"
-          alt="Alex Chen"
-          className="hidden sm:block w-24 h-28 rounded-lg object-cover border border-border flex-shrink-0"
-        />
-        <div>
-          <h2
-            className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-3"
-            style={{ fontFamily: 'var(--font-mono)' }}
-          >
-            Summary
-          </h2>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            Full-stack developer with a B.S. in Computer Science and experience across the
-            whole product lifecycle — from TypeScript React frontends to Python backend
-            services and ML pipelines. I care about writing code that's easy to reason
-            about and systems that are reliable.
-          </p>
-        </div>
       </div>
 
       {/* Work Experience */}
@@ -79,11 +45,11 @@ function Resume() {
                 <div>
                   <h3
                     className="text-lg font-semibold text-foreground"
-                    style={{ fontFamily: 'var(--font-display)' }}
+                    style={{ fontFamily: 'var(--font-sans)' }}
                   >
                     {job.jobTitle}
                   </h3>
-                  <p className="text-sm text-muted-foreground mt-0.5 flex items-center gap-3">
+                  <p className="text-base text-muted-foreground mt-0.5 flex items-center gap-3">
                     <span>{job.company}</span>
                     <span className="flex items-center gap-1">
                       <MapPin size={11} />
@@ -100,27 +66,12 @@ function Resume() {
                     : 'Present'}
                 </span>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                {job.summary}
-              </p>
               {job.content && (
                 <div
-                  className="text-sm text-muted-foreground leading-relaxed [&_ul]:list-disc [&_ul]:pl-4 [&_ul]:space-y-1 [&_li]:text-muted-foreground"
+                  className="text-base text-muted-foreground leading-relaxed [&_ul]:list-disc [&_ul]:pl-4 [&_ul]:space-y-1 [&_li]:text-muted-foreground"
                   dangerouslySetInnerHTML={{ __html: marked(job.content) as string }}
                 />
               )}
-              <div className="flex flex-wrap gap-1.5 mt-4">
-                {job.tags.map((tag) => (
-                  <Badge
-                    key={tag}
-                    variant="secondary"
-                    className="text-xs font-normal"
-                    style={{ fontFamily: 'var(--font-mono)' }}
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
             </div>
           ))}
         </div>
@@ -141,11 +92,11 @@ function Resume() {
                 <div>
                   <h3
                     className="text-lg font-semibold text-foreground"
-                    style={{ fontFamily: 'var(--font-display)' }}
+                    style={{ fontFamily: 'var(--font-sans)' }}
                   >
                     {edu.school}
                   </h3>
-                  <p className="text-sm text-muted-foreground mt-0.5">{edu.summary}</p>
+                  <p className="text-base text-muted-foreground mt-0.5">{edu.summary}</p>
                 </div>
                 <span className="flex items-center gap-1.5 text-xs text-muted-foreground" style={{ fontFamily: 'var(--font-mono)' }}>
                   <Calendar size={11} />
@@ -155,20 +106,59 @@ function Resume() {
                 </span>
               </div>
               {edu.content && (
-                <p className="text-sm text-muted-foreground leading-relaxed mt-2">
+                <p className="text-base text-muted-foreground leading-relaxed mt-2">
                   {edu.content}
                 </p>
               )}
-              <div className="flex flex-wrap gap-1.5 mt-4">
-                {edu.tags.map((tag) => (
-                  <Badge
-                    key={tag}
-                    variant="secondary"
-                    className="text-xs font-normal"
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Technical Skills */}
+      <section className="mb-14">
+        <h2
+          className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-8 pb-3 border-b border-border"
+          style={{ fontFamily: 'var(--font-mono)' }}
+        >
+          Technical Skills
+        </h2>
+        <div className="space-y-5">
+          {[
+            {
+              category: 'Languages',
+              skills: ['Python', 'C++', 'C', 'Java', 'JavaScript', 'TypeScript', 'OCaml', 'Verilog', 'MIPS Assembly'],
+            },
+            {
+              category: 'Frameworks & Libraries',
+              skills: ['FastAPI', 'React.js', 'REST APIs', 'SQLAlchemy', 'Pydantic', 'TanStack Query', 'Scikit-learn', 'Pandas'],
+            },
+            {
+              category: 'Machine Learning / AI',
+              skills: ['PyTorch', 'Hugging Face Transformers', 'LoRA/QLoRA', 'YOLO', 'OpenCV', 'MediaPipe'],
+            },
+            {
+              category: 'Tools & Platforms',
+              skills: ['Git', 'GitHub', 'Linux', 'Jupyter', 'Google Earth Engine', 'ROS', 'VS Code', 'Claude Code'],
+            },
+            {
+              category: 'CS Concepts',
+              skills: ['Object-oriented programming', 'Functional programming', 'Dynamic programming', 'TCP/UDP networking', 'Supervised learning', 'Deep learning', 'Databases'],
+            },
+          ].map(({ category, skills }) => (
+            <div key={category}>
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-2" style={{ fontFamily: 'var(--font-mono)' }}>
+                {category}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="text-xs px-2.5 py-1 bg-secondary text-secondary-foreground rounded-md"
                     style={{ fontFamily: 'var(--font-mono)' }}
                   >
-                    {tag}
-                  </Badge>
+                    {skill}
+                  </span>
                 ))}
               </div>
             </div>
