@@ -1,4 +1,4 @@
-# Alex Chen — Portfolio
+# Jusjeev — Portfolio
 
 Personal portfolio and résumé site for a CS graduate and full-stack developer. Built for job searching and professional networking.
 
