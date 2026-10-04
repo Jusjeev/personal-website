@@ -36,15 +36,11 @@ function About() {
             </h1>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed max-w-xl">
               <p>
-                I completed my B.S. in Computer Science at the University of Illinois Urbana-Champaign and will be pursuing my M.S. in Computer Science from UC Davis, starting in Fall 2026. 
-
+                I completed my B.S. in Computer Science at the University of Illinois Urbana-Champaign and I'm currently working as a Forward Deployed Engineer at ChangeEngine, a startup in San Francisco, CA.
               </p>
               <p>
-                I'm passionate about leveraging software and AI for real world scientific and engineering applications. </p>
-              <p> Currently, I am interested in robotics/AI for agriculture, agentic automation for enterprises and developers and the growing space industry. </p>
-              <p>
-                Outside of work and study, I enjoy reading science fiction and playing outdoor sports such as tennis and soccer.              </p>
-            
+                Outside of work and study, I enjoy reading books and playing both tennis and soccer.
+              </p>
             </div>
             <div className="flex flex-wrap gap-4 mt-8 text-sm text-muted-foreground">
               <span className="flex items-center gap-1.5">
